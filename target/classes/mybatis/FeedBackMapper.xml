@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="net.zicp.xiaochangwei.web.dao.FeedBackDao">
+
+	<sql id="FROM_TABLE"> FROM t_feed_back </sql>
+	<sql id="TABLE"> t_feed_back </sql>
+
+	<sql id="QUERY_CLOUM">fid,uname,comment,create_time AS creatTime,deal_time AS
+		dealTime</sql>
+
+	<sql id="QUERY_BY_CONDITION">
+		<where>
+			<if test="uname !=null and uname !=''"><![CDATA[AND uname = #{uname}]]></if>
+			<if test="fid !=null and fid !=''"><![CDATA[AND fid = #{fid}]]></if>
+		</where>
+	</sql>
+	
+	<!-- 插入信息到数据库 -->
+	<insert id="save" useGeneratedKeys="true" keyProperty="fid" parameterType="net.zicp.xiaochangwei.web.entity.FeedBackEntity" >
+		<![CDATA[
+			INSERT INTO 
+		]]>
+		<include refid="TABLE" />
+		<![CDATA[
+			 (uname,comment) values (#{uname}, #{comment})
+		]]>
+	</insert>
+
+	<!-- 更新处理时间 -->
+	<update id="markAsDealed" parameterType="long">
+		<![CDATA[
+			UPDATE 
+		]]>
+		<include refid="TABLE" />
+		<![CDATA[
+			 SET deal_time = NOW() where fid = #{fid}
+		]]>
+	</update>
+
+	<select id="get" resultType="net.zicp.xiaochangwei.web.entity.FeedBackEntity"
+		parameterType="net.zicp.xiaochangwei.web.entity.FeedBackEntity">
+		<![CDATA[SELECT]]>
+		<include refid="QUERY_CLOUM" />
+		<include refid="FROM_TABLE" />
+		<include refid="QUERY_BY_CONDITION" />
+	</select>
+	
+	<select id="getbyName" resultType="net.zicp.xiaochangwei.web.entity.FeedBackEntity"
+		parameterType="string">
+		<![CDATA[SELECT]]>
+		<include refid="QUERY_CLOUM" />
+		<include refid="FROM_TABLE" />
+		where uname = #{uname} limit 1;
+	</select>
+	
+</mapper>

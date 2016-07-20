@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="net.zicp.xiaochangwei.web.dao.HobbyDao">
+
+	<select id="getAllHobbys" resultType="hobbyType">
+		SELECT
+			ht_id AS htId,
+			ht_name AS htName
+		FROM
+			`t_hb_type`
+		ORDER BY
+			ht_id ASC
+	</select>
+	
+	<select id="getHobbyItems" resultType="hobby" parameterType="long">
+	    SELECT
+			hid,
+			`name`,
+			sort
+		FROM
+			t_hb
+		WHERE
+			type = #{hobbyTypeId}
+		ORDER BY
+			sort ASC
+	</select>
+</mapper>

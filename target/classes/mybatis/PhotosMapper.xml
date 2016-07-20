@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="net.zicp.xiaochangwei.web.dao.PhotoDao">
+
+	<select id="getUserPhotos" resultType="photos" parameterType="long">
+	    SELECT
+			pid,
+			user_id AS userId,
+			path,
+			upload_time AS uploadTime
+		FROM
+			`t_photo`
+		WHERE
+			user_id = #{userId}
+		ORDER BY
+			upload_time DESC
+	</select>
+
+</mapper>

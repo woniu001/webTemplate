@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="net.zicp.xiaochangwei.web.dao.RolePermissionDao">
+
+	<select id="getAllRole" resultType="role">
+		SELECT
+			rid,
+			role_name AS roleName,
+			`desc`
+		FROM
+			`t_role`
+	</select>
+	
+	<select id="getPermissionByRole" resultType="permission" parameterType="long">
+	    SELECT
+			pid,
+			permission,
+			parent_id AS parentId,
+			`desc`,
+			sort
+		FROM
+			`t_permission` p
+		LEFT JOIN f_role_permission rp ON rp.permission_id = p.pid
+		WHERE
+			rp.role_id = #{roleId}
+	</select>
+</mapper>
