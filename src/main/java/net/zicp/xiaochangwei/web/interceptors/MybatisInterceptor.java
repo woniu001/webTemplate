@@ -39,14 +39,9 @@ import org.springframework.beans.factory.InitializingBean;
  * 
  */
 @Intercepts({
-		@Signature(type = Executor.class, method = "update", args = {
-				MappedStatement.class, Object.class }),
-		@Signature(type = Executor.class, method = "query", args = {
-				MappedStatement.class, Object.class, RowBounds.class,
-				ResultHandler.class, CacheKey.class, BoundSql.class }),
-		@Signature(type = Executor.class, method = "query", args = {
-				MappedStatement.class, Object.class, RowBounds.class,
-				ResultHandler.class }) })
+	@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class }),
+	@Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class }),
+	@Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class }) })
 public class MybatisInterceptor implements Interceptor, InitializingBean {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -85,8 +80,7 @@ public class MybatisInterceptor implements Interceptor, InitializingBean {
 		if ("query".equals(method.getName())) {
 			DataSourceSwith.setDataSource(DataSourceSwith.QUERY);
 		} else {
-			// 默认就连接的更新库，这里不再主动设置，理论上而言主动设置了反而会降低性能
-			// DataSourceSwith.setDataSource(DataSourceSwith.UPDATE);
+			DataSourceSwith.setDataSource(DataSourceSwith.UPDATE);
 		}
 
 		// 分表

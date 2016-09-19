@@ -32,14 +32,11 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
 	<context:component-scan base-package="net.zicp.xiaochangwei.web">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.web.bind.annotation.RestController" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />
-	
 	
 	<bean id="pipeline" class="net.zicp.xiaochangwei.web.pipeline.impl.PipelineImpl">
         <property name="handlers">

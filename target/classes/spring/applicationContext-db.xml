@@ -118,6 +118,5 @@
 	</bean>
 
 	<!-- 声明试事务管理 -采用annotation方式 -->
-	<tx:annotation-driven transaction-manager="transactionManager"
-		proxy-target-class="true" />
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 </beans>

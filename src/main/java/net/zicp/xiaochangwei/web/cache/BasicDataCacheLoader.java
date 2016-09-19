@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import javax.servlet.ServletContext;
-
 import net.zicp.xiaochangwei.web.dao.CityDao;
 import net.zicp.xiaochangwei.web.dao.FeedBackDao;
 import net.zicp.xiaochangwei.web.dao.HobbyDao;
@@ -36,13 +34,16 @@ import com.alibaba.fastjson.JSON;
 
 /**
  * 
- * @author xiaochangwei redis缓存变动较少的数据并定时刷新
+ * @author xiaochangwei
+ * redis缓存变动较少的数据并定时刷新
  */
 @Component
 public class BasicDataCacheLoader implements InitializingBean, DisposableBean {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	protected static final int CORE_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+	
 	@Value("${cache.cacheExpire}")
 	private long cacheExpire;
 
@@ -78,12 +79,10 @@ public class BasicDataCacheLoader implements InitializingBean, DisposableBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		
-		executor = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory(
-				"static-info-loader"));
+		executor = new ScheduledThreadPoolExecutor(CORE_SIZE, new NamedThreadFactory("static-info-loader"));
 		RefreshCache refreshCache = new RefreshCache();
 		refreshCache.run();
-		executor.scheduleWithFixedDelay(refreshCache, cacheExpire, cacheExpire,
-				TimeUnit.SECONDS);
+		executor.scheduleWithFixedDelay(refreshCache, cacheExpire, cacheExpire, TimeUnit.SECONDS);
 		
 	}
 
@@ -132,8 +131,6 @@ public class BasicDataCacheLoader implements InitializingBean, DisposableBean {
 					redisCache.opsForValue().set(Constant.HOBBY + ht.getHtId(), JSON.toJSONString(ht));
 				}
 			}
-			
-//			System.out.println("all: "+redisCache.keys("hobby_*"));
 			
 			log.info("---开始刷新用户信息缓存-----");
 			List<UserInfo> userinfos = userDao.getAllUserInfo();
