@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年6月22日 下午3:23:55 意见反馈
  */
 public class FeedBackEntity implements Serializable {

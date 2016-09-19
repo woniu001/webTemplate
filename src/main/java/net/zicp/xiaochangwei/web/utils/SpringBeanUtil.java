@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年9月18日 下午1:47:59
  * 
  */

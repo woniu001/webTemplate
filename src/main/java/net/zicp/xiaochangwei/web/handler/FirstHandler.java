@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import net.zicp.xiaochangwei.web.pipeline.HandlerAdapter;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年6月29日 上午8:48:22
  * 
  */

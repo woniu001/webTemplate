@@ -15,7 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import com.alibaba.fastjson.JSON;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年9月18日 上午11:45:06
  * 
  */

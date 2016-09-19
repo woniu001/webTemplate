@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年7月12日 上午9:51:05
  * 
  */

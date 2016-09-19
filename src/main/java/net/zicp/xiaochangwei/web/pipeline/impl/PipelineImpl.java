@@ -11,7 +11,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年6月29日 上午8:38:22
  * 
  */

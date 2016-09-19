@@ -7,7 +7,7 @@ import net.zicp.xiaochangwei.web.entity.FeedBackEntity;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年6月22日 下午3:22:39
  * 
  */

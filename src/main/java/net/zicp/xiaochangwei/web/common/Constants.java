@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import java.util.UUID;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年6月28日 上午9:24:01 常量保存
  */
 public class Constants {

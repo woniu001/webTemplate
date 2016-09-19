@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.StringHttpMessageConverter;
 
 /**
- * @author 肖昌伟 E-mail:changwei.xiao@56qq.com
+ * @author 肖昌伟 E-mail:317409898@qq.com
  * @version 创建时间：2016年7月18日 上午9:35:28
  * 
  */
